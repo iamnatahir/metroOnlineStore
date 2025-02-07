@@ -1,0 +1,40 @@
+
+<body class="d-flex flex-column min-vh-100">
+  
+
+    <div class="container my-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 style="color: #002D78;">Product Management</h1>
+            <a href="/admin/create" class="btn btn-create">
+                <i class="fas fa-plus"></i> Create New Product
+            </a>
+        </div>
+
+        <div class="row">
+            <% for( let index = 0; index < products.length; index++ ) { %>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card">
+                        <img src="/uploads/<%= products[index].image %>"" class="card-img-top" alt="<%= products[index].title %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= products[index].title %></h5>
+                            <p class="card-text"><%= products[index].description.substring(0, 100) %>...</p>
+                            <p class="card-text"><strong>Rs.</strong>  <%= products[index].price.toFixed(2) %> </p>
+                            <p class="card-text"><strong>Featured:</strong> <%= products[index].isFeatured %></p>
+                        </div>
+                        <div class="product-actions">
+                            <a href="/admin/products/edit/<%= products[index]._id %>" class="btn btn-sm btn-warning">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="/admin/products/delete/<%= products[index]._id %>" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                </div>
+            <% }; %>
+        </div>
+    </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+

@@ -1,0 +1,42 @@
+<body class="d-flex flex-column min-vh-100">
+
+    <div class="container my-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Category Management</h1>
+            <a href="/admin/create-category" class="btn btn-create">
+                <i class="fas fa-plus"></i> Create New Category
+            </a>
+        </div>
+        <div class="row">
+            <% for( let index = 0; index < categories.length; index++ ){ %>
+                <div class="col-md-4 col-lg-3">
+                    <div class="card">
+                        <img src="/uploads/<%= categories[index].image %>" class="card-img-top" alt="<%= categories[index].title %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= categories[index].title %></h5>
+                            <p class="card-text"><%= categories[index].description %></p>
+                            <p class="card-text"><strong>Number of Items:</strong> <%= categories[index].numberOfItems %></p>
+                        </div>
+                        <div class="category-actions">
+                            <a href="/admin/categories/edit/<%= categories[index]._id %>" class="btn btn-sm btn-warning">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="/admin/categories/delete/<%= categories[index]._id %>" class="btn btn-sm btn-danger" >
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <% }; %>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,93 @@
+<style>
+    :root {
+            --primary-bg: #ffffff;
+            --secondary-bg: #f8fafc;
+            --primary-text: #0f172a;
+            --secondary-text: #64748b;
+            --accent-color: #1e40af;
+        }
+
+
+    .container {
+        margin-top: 100px;
+            margin-left: 600px;
+            max-width: 400px;
+            width: 100%;
+            padding: 2rem;
+            background-color: var(--primary-bg);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        h1 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-text);
+        }
+
+        .icon {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .redirect-text {
+            font-size: 0.875rem;
+            text-align: center;
+            color: var(--secondary-text);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            margin-top: 1rem;
+            width: 100%;
+            text-align: center;
+            font-weight: 500;
+            color: #ffffff;
+            background-color: var(--accent-color);
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #1e3a8a;
+        }
+</style>
+<div class="container">
+    <div class="icon">✉️</div>
+    <h1>Order Confirmed Successfully!</h1>
+    <p>Thank you for your order.</p>
+    <p>Please, see your confirmation email</p>
+    <p class="redirect-text">Redirecting to home page in <span id="countdown">10</span> seconds...</p>
+    <a href="/" class="btn">Return to Home</a>
+</div>
+
+<script>
+    let timeLeft = 10;
+    const timerElement = document.getElementById('countdown');
+
+    const countdown = setInterval(() => {
+        timeLeft--;
+        timerElement.textContent = timeLeft;
+
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            window.location.href = '/';
+        }
+    }, 1000);
+</script>

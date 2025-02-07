@@ -1,0 +1,136 @@
+
+
+    <style> 
+.container {
+        max-width: 800px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+        
+        h1, h2 {
+            font-weight: bold; 
+            font-size: 20px;
+            color: #333;
+            text-align: center;
+        }
+        form {
+            display: grid;
+            gap: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #0047b6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #003399;
+        }
+        .order-summary {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .total-row {
+            font-weight: bold;
+        }
+       
+    </style>
+
+
+    <div class="container">
+        <h1 style=" font-size: 30px;">Checkout</h1>
+        <form action="/checkout" method="POST">
+            <h2 >Delivery Information</h2>
+            <div>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+            <div>
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div>
+                <label for="postalCode">Postal Code:</label>
+                <input type="text" id="postalCode" name="postalCode" required>
+            </div>
+
+            <h2>Payment Method</h2>
+            <div>
+                <label>
+                    <input type="radio" name="paymentMethod" value="cashOnDelivery" checked>
+                    Cash on Delivery
+                </label>
+            </div>
+
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <% if (products && products.length > 0) { %>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% let total = 0; %>
+                            <% products.forEach(product => { %>
+                                <tr>
+                                    <td data-label="Product"><%= product.title %></td>
+                                    <td data-label="Price"><%= product.price.toFixed(2) %></td>
+                                    <td data-label="Quantity"><%= product.quantity %></td>
+                                    <td data-label="Total"><%= (product.price * product.quantity).toFixed(2) %></td>
+                                </tr>
+                                <% total += product.price * product.quantity; %>
+                            <% }) %>
+                        </tbody>
+                        <tfoot>
+                            <tr class="total-row">
+                                <td colspan="3">Total:</td>
+                                <td>Rs.<%= total.toFixed(2) %></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                <% } else { %>
+                    <p>Your cart is empty.</p>
+                <% } %>
+            </div>
+
+            <button type="submit">Confirm Order</button>
+        </form>
+    </div>
+
+ 

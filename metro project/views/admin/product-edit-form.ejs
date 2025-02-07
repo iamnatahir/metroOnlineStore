@@ -1,0 +1,26 @@
+
+
+<form action="/admin/products/edit/<%= product._id %>" class="container" method="post" style="width: 800px; margin-top: 50px;">
+    <div class="form-group" >
+        <label for="">Title</label>
+        <input name="title" type="text" class="form-control" value="<%= product.title %>"/>
+    </div>
+    <div class="form-group">
+        <label for="">Description</label>
+        <textarea name="description" type="text" class="form-control"><%= product.description %></textarea>
+    </div>
+    <div class="form-group">
+        <label for="">Price </label>
+        <input name="price" type="text" class="form-control" value="<%= product.price %>"/>
+    </div>
+    <div class="form-group my-3">
+        <label for="">Featured?  
+        <input name="isFeatured" type="checkbox" class="form-check-input" <% if (product.isFeatured) { %>
+         checked="checked"
+        <% } %> />
+    </label>
+    </div>
+    <div class="form-group">
+        <button class="btn "  style="background-color: #0047b6; color: white;">Edit Record</button>
+    </div>
+</form>

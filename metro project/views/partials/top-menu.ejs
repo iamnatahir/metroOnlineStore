@@ -1,0 +1,65 @@
+<div class="top">
+    <div class="header">
+        <img class="header-img" src="images/METRO.png" />
+
+        <div class="menu-items">
+            <div>
+                <img src="images/bi_wholesale.png" />
+                <a href="/">Home</a>
+            </div>
+            <div>
+                <img src="images/bi_delivery.png">
+                <a href="/">M-Professional</a>
+            </div>
+            <div>
+                <img src="images/bi_onlineshop.png" />
+                <a href="/">Shop Online</a>
+            </div>
+            <div>
+                <img src="images/bi_infosservices.png">
+                <a href="/admin/dashboard">Admin Portal</a>
+            </div>
+        </div>
+        
+        <div class="signin">
+            <% if (user) { %> <!-- Check if user is logged in -->
+                <form action="/logout" method="get" style="display:inline; color: #0059e4; color: white; border: none; outline: none;">
+                    <button type="submit" class="btn " style="color: white;">Log out</button>
+                </form>
+            <% } else { %>
+                <i class="fa-regular fa-user"></i>
+                <a href="/login">Sign up/ Log in</a>
+            <% } %>
+            </div>
+        
+        
+    </div>
+
+    <!-- Search and Sort Section -->
+    <div class="search">
+        <div>
+            <form class="mx-4">
+                <input class="inputt" type="text" placeholder="search by name" name="search" />
+                <input class="buttn" type="submit" value="search" />
+            </form>
+        </div>
+        <div>
+            <form method="GET" action="/">
+                <select class="hehe" name="sort" id="sort" onchange="this.form.submit()">
+                    <option>sort by</option>
+                    <option value="titleAsc">Alphabetically (A-Z)</option>
+                    <option value="titleDesc">Alphabetically (Z-A)</option>
+                    <option value="priceLowToHigh">Price, Low to High</option>
+                    <option value="priceHighToLow">Price, High to Low</option>
+                </select>
+            </form>
+        </div>
+        <!-- Cart Icon with Counter -->
+        <div class="cart">
+            <a href="/cart">
+                <i class="fa fa-shopping-cart"></i>
+                <span id="cart-count"><%= cartCount %></span>
+            </a>
+        </div>
+    </div>
+</div>

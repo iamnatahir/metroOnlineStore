@@ -1,0 +1,36 @@
+<form class="search-form mx-4">
+  <input type="text" placeholder="Search by name" name="search" class="search-input" />
+  <input type="submit" value="Search" class="search-btn" />
+  <a href="/admin/dashboard" class="dashboard-btn">Back to Dashboard</a>
+</form>
+
+<div class="product-dashboard" style="margin-top: 60px;">
+  <% products.forEach(product => { %>
+      <div class="each-product-dashboard">
+          <img class="card-img-top" src="/uploads/<%= product.image %>" alt="<%= product.title %>" />
+          <div class="card-body">
+              <h5 class="card-title"><%= product.title %></h5>
+              <p class="card-text"><%= product.description %></p>
+              <p class="product-price">PKR: <%= product.price %></p>      
+          </div>
+      </div>
+  <% }) %>
+
+  
+  
+</div>
+
+<div class="page">
+   
+  <% if (currentPage > 1) { %>
+    <a href="?page=<%= currentPage - 1 %>&search=<%= search %>" class="page-link">Previous</a>
+  <% } %>
+
+  <% for (let j = 1; j <= totalPages; j++) { %>
+    <a href="?page=<%= j %>&search=<%= search %>" class="page-link <%= j == currentPage ? 'active' : '' %>"><%= j %></a>
+  <% } %>
+
+  <% if (currentPage < totalPages) { %>
+    <a href="?page=<%= currentPage + 1 %>&search=<%= search %>" class="page-link">Next</a>
+  <% } %>
+</div>

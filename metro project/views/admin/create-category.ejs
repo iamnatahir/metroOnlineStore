@@ -1,0 +1,24 @@
+<form class="row g-3 mx-4" style="max-width: 500px; margin-top: 20px; margin-left: 550px !important; " action="/admin/create-category" method="POST" enctype="multipart/form-data">
+    <div class="col-md-6">
+      <label for="inputTitle" class="form-label">Title</label>
+      <input type="text" class="form-control" id="inputTitle" name="title" placeholder="Enter product title">
+    </div>
+  
+    <div class="col-12">
+      <label for="inputDescription" class="form-label">Description</label>
+      <input type="text" class="form-control" id="inputDescription" name="description" placeholder="Enter description">
+    </div>
+  
+    <div class="col-md-6">
+      <label for="numberOfItems" class="form-label">Number Of Items</label>
+      <input type="number" class="form-control" id="numberOfItems" name="numberOfItems" placeholder="Enter number of items">
+    </div>
+    <div class="mb-3" >
+      <input class="form-control" type="file" id="formFile" name="categoryImage"> 
+    </div>
+  
+    <div class="col-12">
+      <button type="submit" style="background-color: #0047b6; color: white;" class="btn">Create</button>
+    </div>
+  </form>
+  

@@ -1,0 +1,178 @@
+
+<div class="content" style="margin-top: 0px;">
+        <div class="teaser">
+            <div class="teaser-text">
+                <div class="txt">
+                    <button class="btn1">OFFERS</button>
+                    <h1>HOME DECOR ESSENTIALS!</h1>
+                    <h4>Buy your furniture from METRO!</h4>
+                    <button class="btn2">See Offers!</button>
+                </div>
+            </div>
+
+            <div class="teaser-img">
+                <img src="./images/Furniture-955x460.avif" />
+            </div>
+        </div>
+
+        <div class="options">
+            <div class="hover-shadow">
+                <img src="./images/at_catalogues.png" />
+                <a href="./Metro.html" class="post">METRO POST</a>
+            </div>
+            <div class="hover-shadow">
+                <img src="./images/at_store.png" />
+                <a href="./Metro.html" class="stores">OUR STORES</a>
+            </div>
+            <div class="hover-shadow">
+                <img src="images/at_newsletter.png" />
+                <a href="./Metro.html" class="subscribe">NEWSLETTER</a>
+            </div>
+            <div class="hover-shadow reward4">
+                <img src="images/at_payment-card.png" />
+                <a href="./Metro.html" class="rewards"> METRO REWARDS</a>
+            </div>
+        </div>
+
+      <div style="display: flex; justify-content: space-between; margin-top: 25px;">
+        <h2 class="non-food" >PRODUCTS</h2>
+        <a href="/" class="dashboard-btn" style="width: 12%; height: 50px;" >Back to Products</a>
+      </div>
+       
+      <div class="product-container" style="margin-top: 10px; margin-bottom: 30px;">
+        <div class="product">
+            <% products.forEach(product => { %>
+                <div class="each-product">
+                    <img class="card-img-top" src="/uploads/<%= product.image %>" alt="<%= product.title %>" />
+                    <div class="card-body">
+                        <h5 class="card-title"><%= product.title %></h5>
+                        <p class="card-text"><%= product.description %></p>
+                        <p>PKR: <%= product.price %></p>
+                        <div class="d-flex gap-2" style="margin-left: 100px;">
+                            <a href="/add-to-cart/<%= product._id %>" class="btn btn-primary add-to-cart" data-id="<%= product._id %>">Add To Cart</a>
+                        </div>
+                        
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    
+
+
+    
+        <div class="teaser-below">
+            <div class="part1 parts">
+                <h2 class="non-food">Buy More, Pay Less</h2>
+                <div class="div-inside1 hover-shadow">
+                    <h1>BUY MORE AND PAY LESS!</h1>
+                    <h3>Buy in bulk and save more!</h3>
+                    <button>See Offers!</button>
+                </div>
+            </div>
+            <div class="part2 parts">
+                <h2 class="non-food"> Shop Online !</h2>
+                <div class="div-inside2 hover-shadow">
+                    <h1>SHOP ONLINE!</h1>
+                    <h3>Buy from the comfort of your home!</h3>
+                    <button>Buy Now!</button>
+                </div>
+            </div>
+    </div>
+
+<h2 class="non-food">Feedback Form</h2>
+<div class="form">
+    <h1>GIVE US YOUR FEEDBACK</h1>
+    <p>METRO cares about what their customers has to say</p>
+    <button>Feedback Form </button>
+</div>
+
+
+<h2 class="non-food">Discover METRO</h2>
+<div class="discover-metro" style="margin-bottom: 30px;">
+    <div class="discover hover-shadow">
+        <img src="./images/Small-Metro-Online-Trolley.avif">
+        <h2>Buy Online</h2>
+        <p>METRO online has been known for its quality in terms of products &amp; services. You can find out more about METRO Online &amp; why you should order online.&nbsp;</p>
+    <a href="/">Know More</a>
+    </div>
+    <div class="discover hover-shadow">
+        <img src="./images/Career-page.avif">
+        <h2>Careers At METRO</h2>
+        <p>Learn more about METRO Pakistan (Pvt) Ltd Careers, where we are thrilled to present an array of career opportunities to individuals who are eager to make a difference in the retail industry.&nbsp;</p>
+        <a href="/">Know More</a>
+    </div>
+    <div class="discover hover-shadow">
+        <img src="./images/Cover-image-and-women-in-trade-picture.avif">
+        <h2>Empowering People</h2>
+        <p>People are at the heart of what we do whether they are our own employees or our business partners in our value chain.</p>
+        <a href="/">Know More</a>
+    </div>
+    <div class="discover hover-shadow">
+        <img src="./images/Sustaibility-at-METRO.avif">
+        <h2>Sustainability at METRO</h2>
+        <p>At METRO, we have raised the issue of sustainability to a benchmark for our business activities.&nbsp;A principle that we have firmly anchored in our everyday business.&nbsp;</p>
+        <a href="/">Know More</a>
+    </div>
+</div>
+
+<div class="teaser teaserr">
+    <div class="teaser-text">
+        <div class="txt">
+            <h1>METRO COMPANION APPLICATION</h1>
+            <h4>Bringing you ease!</h4>
+            <button class="btn2">Learn more!</button>
+        </div>
+    </div>
+
+    <div class="teaser-img">
+        <img src="./images/M-PRO-4.avif" />
+    </div>
+</div>
+
+<div class="icons">
+    <div class="seperate">
+        <img src="./images/si_store.svg">
+        <h3>Pick-up</h3>
+        <p>In-stores</p>
+        <a href="/">Contact nearest store</a>
+    </div>
+    <div class="seperate">
+        <img src="./images/si_premium.svg">
+        <h3>METRO</h3>
+        <p>Premium</p>
+        <a href="/">METRO own brands</a>
+    </div>
+    <div class="seperate">
+        <img src="./images/si_delivery.svg">
+        <h3>Deliver</h3>
+        <p>Shop at home</p>
+        <a href="/">Shop Online</a>
+    </div>
+    <div class="seperate">
+        <img src="./images/si_stay-connected.svg">
+        <h3>Stay</h3>
+        <p>Connected</p>
+        <a href="/">Email us</a>
+    </div>
+</div>
+
+</div>
+    <!-- At the end of the file, update the script -->
+<script>
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", async function (e) {
+            e.preventDefault();
+            const productId = this.dataset.id;
+    
+            const response = await fetch(`/add-to-cart/${productId}`, { method: 'POST' });
+            const data = await response.json();
+    
+            // Update cart count in the UI
+            document.getElementById("cart-count").innerText = data.cartCount;
+        });
+    });
+ 
+
+    
+</script>
