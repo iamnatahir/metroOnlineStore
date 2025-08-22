@@ -28,7 +28,7 @@ function isLoggedIn(req, res, next) {
 
 app.use(
     session({
-      secret: "My_session_secret",
+      secret:  process.env.SESSION_SECRET || "fallback_secret",
       resave: false,
       saveUninitialized: false,
       cookie: { 
@@ -64,10 +64,10 @@ app.use((req, res, next) => {
   });
   
 app.use(cors({
-    origin: "http://localhost:5000", 
-    credentials: true,   
-           
-  }));
+    origin: process.env.CLIENT_URL || "http://localhost:5000",
+    credentials: true,
+}));
+
 
 app.use(userRouter);
 
@@ -76,9 +76,11 @@ app.use(userRouter);
 app.set("view engine","ejs");
 app.use(express.static("public")); 
 
-app.listen(5000,()=>{
-    console.log("server started at local host");
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
 });
+
 
 
 
